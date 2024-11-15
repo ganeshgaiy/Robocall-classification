@@ -1,26 +1,47 @@
 # Robocall Detection Project
 
+This project aims to develop a machine learning model capable of distinguishing between robocalls and normal calls using audio data. By analyzing specific audio features, the model identifies patterns unique to each call type, facilitating the detection of unwanted or fraudulent communications.
+
+
 ## Overview
 
-This project aims to develop a machine learning model capable of distinguishing between robocalls and normal calls using audio data. By analyzing specific audio features, the model identifies patterns unique to each call type, facilitating the detection of unwanted or fraudulent communications.
+This project involves:
+- **Data Preprocessing**: Segmenting, cleaning, and balancing audio recordings of robocalls and normal calls.
+- **Feature Extraction**: Extracting audio features to train a machine learning model.
+- **Model Training**: Building a model to classify audio as either robocall or normal call.
 
 ## Dataset
 
-The dataset comprises audio recordings categorized as follows:
+The dataset consists of audio recordings categorized as follows:
+- **Robocalls**: 1,343 recordings, typically shorter and more repetitive.
+- **Normal Calls**: 1,000 segmented recordings, derived from longer conversations, with silence removed.
 
-- **Robocalls**: Approximately 1,000 recordings, each ranging from 5 seconds to 2 minutes.
-- **Normal Calls**: Several recordings, each around 30 minutes, segmented into clips between 5 and 30 seconds.
+### Dataset Statistics
 
-Both categories have been processed to extract the left audio channel and remove extended silences, ensuring consistency and clarity.
+| Class       | Mean Duration (s) | Median Duration (s) | Min Duration (s) | Max Duration (s) |
+|-------------|--------------------|----------------------|-------------------|-------------------|
+| Robocall    | 25.25             | 21.53               | 4.53             | 573.19           |
+| Normal Call | 675.23 (original) | 699.52 (original)   | 42.07            | 1304.20          |
+| After Segmentation | 5-30 seconds for each segment | N/A | N/A | N/A |
 
-## Project Structure
-
+## Directory Structure
 - `dataset/`
   - `robocall/`: Contains processed robocall audio files.
   - `normal_call/`: Contains segmented normal call audio files.
-- `notebooks/`: Jupyter notebooks detailing data exploration, feature extraction, and model training.
-- `models/`: Saved models and related artifacts.
-- `scripts/`: Python scripts for data processing and feature extraction.
-- `requirements.txt`: List of required Python packages.
+ 
+## Requirements
+
+- Python 3.7+
+- Required libraries:
+  - `librosa`
+  - `pydub`
+  - `soundfile`
+  - `numpy`
+
+Install the required packages using:
+```bash
+pip install -r requirements.txt
+
+
 
 
